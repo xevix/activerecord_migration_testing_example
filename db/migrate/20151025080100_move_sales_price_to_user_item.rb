@@ -4,7 +4,7 @@ class MoveSalesPriceToUserItem < ActiveRecord::Migration
     UserItem.reset_column_information
 
     UserItem.includes(:user).each do |user_item|
-      user_item.sales_price = user.sales_price || 0
+      user_item.sales_price = user_item.user.sales_price || 0
       user_item.save!
     end
 
@@ -17,7 +17,7 @@ class MoveSalesPriceToUserItem < ActiveRecord::Migration
 
     User.includes(:user_items).each do |user|
       # Best-effort recovery. Grab the sales_price of the first if any.
-      user.sales_price = user_items.first.try(:sales_price)
+      user.sales_price = user.user_items.first.try(:sales_price)
       user.save!
     end
 
