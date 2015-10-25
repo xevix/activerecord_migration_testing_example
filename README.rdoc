@@ -1,5 +1,7 @@
 This is a quick and dirty example of how to do migrations testing in Rails/ActiveRecord with FactoryGirl and RSpec.
 
+Related Article: https://medium.com/@xevix/activerecord-migration-testing-624aada9d276#.blj17d22a
+
 The MIT License (MIT)
 
 Copyright (c) 2015 Alejandro Wainzinger
